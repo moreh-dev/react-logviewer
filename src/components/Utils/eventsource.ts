@@ -83,6 +83,11 @@ export default (url: string | URL, options: EventSourceOptions) => {
 
                 emitter.emit("data", msg);
             });
+
+            emitter.on("abort", () => {
+                aborted = true;
+                eventSource.close();
+            });
         } catch (err) {
             emitter.emit("error", err);
         }
