@@ -1,3 +1,4 @@
+import { EventSourcePolyfill, NativeEventSource } from "event-source-polyfill";
 import { List } from "immutable";
 import mitt from "mitt";
 
@@ -5,9 +6,17 @@ import { EventSourceOptions } from "../LazyLog";
 import { encode } from "./encoding";
 import { bufferConcat, convertBufferToLines } from "./utils";
 
+const EventSource = EventSourcePolyfill || NativeEventSource;
+
 export default (url: string | URL, options: EventSourceOptions) => {
-    const { eventSourceInitDict, onOpen, onClose, onError, formatMessage } =
-        options;
+    const {
+        withCredentials,
+        headers,
+        onOpen,
+        onClose,
+        onError,
+        formatMessage,
+    } = options;
     const emitter = mitt();
     let encodedLog = new Uint8Array();
     let overage: any = null;
@@ -40,7 +49,10 @@ export default (url: string | URL, options: EventSourceOptions) => {
     emitter.on("start", () => {
         try {
             // try to connect to eventSource
-            const eventSource = new EventSource(url, eventSourceInitDict);
+            const eventSource = new EventSource(new URL(url).toString(), {
+                withCredentials,
+                headers,
+            });
 
             eventSource.addEventListener("open", (e) => {
                 // relay on open events if a handler is registered

@@ -1,3 +1,4 @@
+import { Event } from "event-source-polyfill";
 import { List, Range } from "immutable";
 import React, { CSSProperties, Component, Fragment, ReactNode } from "react";
 import { VList, VListHandle } from "virtua";
@@ -52,9 +53,13 @@ export interface WebsocketOptions {
 
 export interface EventSourceOptions {
     /**
-     * Options object which will be passed through to the eventsource.
+     * Boolean indicating if CORS should be set to include credentials
      */
-    eventSourceInitDict?: EventSourceInit;
+    withCredentials?: boolean;
+    /**
+     * Headers to be sent with the request
+     */
+    headers?: Record<string, string>;
     /**
      * Callback when the eventsource is opened
      */

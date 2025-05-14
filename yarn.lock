@@ -716,6 +716,7 @@ __metadata:
     "@storybook/react": "npm:^8.6.4"
     "@storybook/react-vite": "npm:^8.6.4"
     "@storybook/test": "npm:^8.6.4"
+    "@types/event-source-polyfill": "npm:^1"
     "@types/react": "npm:^19.0.10"
     "@types/react-dom": "npm:^19.0.4"
     "@vitejs/plugin-react": "npm:^4.3.4"
@@ -724,6 +725,7 @@ __metadata:
     eslint-plugin-react-hooks: "npm:^5.2.0"
     eslint-plugin-react-refresh: "npm:^0.4.19"
     eslint-plugin-storybook: "npm:^0.11.4"
+    event-source-polyfill: "npm:^1.0.31"
     hotkeys-js: "npm:3.13.10"
     immutable: "npm:^5.1.2"
     mitt: "npm:3.0.1"
@@ -1567,6 +1569,13 @@ __metadata:
   version: 1.0.7
   resolution: "@types/estree@npm:1.0.7"
   checksum: 10c0/be815254316882f7c40847336cd484c3bc1c3e34f710d197160d455dc9d6d050ffbf4c3bc76585dba86f737f020ab20bdb137ebe0e9116b0c86c7c0342221b8c
+  languageName: node
+  linkType: hard
+
+"@types/event-source-polyfill@npm:^1":
+  version: 1.0.5
+  resolution: "@types/event-source-polyfill@npm:1.0.5"
+  checksum: 10c0/62f06c58312097c17f8489771057bb9e859269243a815ef27c8b50b48e084412fce4f90cb18252f807ed9016028321ce2713c90b77e77abc9e84a21bce5db724
   languageName: node
   linkType: hard
 
@@ -3234,6 +3243,13 @@ __metadata:
   version: 1.8.1
   resolution: "etag@npm:1.8.1"
   checksum: 10c0/12be11ef62fb9817314d790089a0a49fae4e1b50594135dcb8076312b7d7e470884b5100d249b28c18581b7fd52f8b485689ffae22a11ed9ec17377a33a08f84
+  languageName: node
+  linkType: hard
+
+"event-source-polyfill@npm:^1.0.31":
+  version: 1.0.31
+  resolution: "event-source-polyfill@npm:1.0.31"
+  checksum: 10c0/79966f5084796e14f9a9dec315a2ccc220dedc51ff5f2b198dc80e3cb2ae01428d39d9bf66ed679f1944be086b9f6e84ea3dc933b81b0411c07f99672135679b
   languageName: node
   linkType: hard
 
