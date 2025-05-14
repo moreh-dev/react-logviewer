@@ -52,7 +52,7 @@ export interface WebsocketOptions {
 
 export interface EventSourceOptions {
     /**
-     * Boolean indicating if CORS should be set to include credentials
+     * Options object which will be passed through to the eventsource.
      */
     eventSourceInitDict?: EventSourceInit;
     /**
