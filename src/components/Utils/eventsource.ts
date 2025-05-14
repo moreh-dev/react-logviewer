@@ -6,7 +6,8 @@ import { encode } from "./encoding";
 import { bufferConcat, convertBufferToLines } from "./utils";
 
 export default (url: string | URL, options: EventSourceOptions) => {
-    const { withCredentials, onOpen, onClose, onError, formatMessage } = options;
+    const { eventSourceInitDict, onOpen, onClose, onError, formatMessage } =
+        options;
     const emitter = mitt();
     let encodedLog = new Uint8Array();
     let overage: any = null;
@@ -39,7 +40,7 @@ export default (url: string | URL, options: EventSourceOptions) => {
     emitter.on("start", () => {
         try {
             // try to connect to eventSource
-            const eventSource = new EventSource(url, { withCredentials });
+            const eventSource = new EventSource(url, eventSourceInitDict);
 
             eventSource.addEventListener("open", (e) => {
                 // relay on open events if a handler is registered
@@ -48,9 +49,9 @@ export default (url: string | URL, options: EventSourceOptions) => {
 
             eventSource.addEventListener("close", (e) => {
                 onClose && onClose(e);
-                if(!aborted && options.reconnect) {
+                if (!aborted && options.reconnect) {
                     const timeout = options.reconnectWait ?? 1;
-                    setTimeout(() => emitter.emit("start"), timeout*1000);
+                    setTimeout(() => emitter.emit("start"), timeout * 1000);
                 }
             });
 

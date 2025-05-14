@@ -54,7 +54,7 @@ export interface EventSourceOptions {
     /**
      * Boolean indicating if CORS should be set to include credentials
      */
-    withCredentials?: boolean;
+    eventSourceInitDict?: EventSourceInit;
     /**
      * Callback when the eventsource is opened
      */
