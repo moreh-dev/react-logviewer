@@ -64,6 +64,8 @@ export default (url: string | URL, options: EventSourceOptions) => {
                 if (!aborted && options.reconnect) {
                     const timeout = options.reconnectWait ?? 1;
                     setTimeout(() => emitter.emit("start"), timeout * 1000);
+                } else {
+                    eventSource.close();
                 }
             });
 
