@@ -24,10 +24,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/melloware/react-logviewer.git"
+    "url": "https://github.com/moreh-dev/react-logviewer.git"
   },
   "bugs": {
-    "url": "https://github.com/melloware/react-logviewer/issues"
+    "url": "https://github.com/moreh-dev/react-logviewer/issues"
   },
   "homepage": "https://melloware.github.io/react-logviewer/",
   "license": "MPL-2.0",
